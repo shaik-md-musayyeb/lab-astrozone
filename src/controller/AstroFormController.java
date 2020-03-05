@@ -30,17 +30,18 @@ public class AstroFormController extends HttpServlet {
 		String name=request.getParameter("name");
 		String gender=request.getParameter("gender");
 		String email = request.getParameter("email");
-		String date=request.getParameter("dob1");
-		String month=request.getParameter("dob2");
-		String year=request.getParameter("dob3");
-		String dob = date+"-"+month+"-"+year;
+		String date1=request.getParameter("dob1");
+		String month1=request.getParameter("dob2");
+//		String year=request.getParameter("dob3");
+//		String dob = date+"-"+month+"-"+year;
 	
 	// 1. ***Create an object for User in astro class and pass the inputs as contructor arguments.***
 	// 2. ***Create an object for User class and pass the values given above as arguments to constructor.***
 	// 3. ***Create an object for the AstroCalculator class.***
 	// 4. ***Call the findSign method and store the return value in a String variable called as astrosign***
-		
-		User u = new User(name,email,dob,gender);
+		int date = Integer.parseInt(date1);
+		int month = Integer.parseInt(month1); 
+		User u = new User(name,email,date,month,gender);
 		AstroCalculator ac=new AstroCalculator();
 		String astrosign=ac.findSign(u);
 		
